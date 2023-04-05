@@ -20,10 +20,12 @@ MonoBehaviour:
     - EnableSplashAd
     - EnableInterstitialAd
     - BannerRefreshInterval
+    - ShowBannerOnLoad
     _values:
-    - False
     - True
-    - False
-    - False
-    - False
+    - True
+    - True
+    - True
+    - True
     - 60
+    - True
