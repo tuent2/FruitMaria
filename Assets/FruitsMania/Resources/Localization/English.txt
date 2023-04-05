@@ -1,0 +1,83 @@
+0 : life after
+1 : Any purchase will remove all ads
+2 : Do you want to continue?
+3 : SPIN
+4 : Coins Shop
+5 : Play
+6 : You WIN!
+7 : Level Failed
+8 : Life Shop
+9 : Select Boosters:
+10 : NEXT
+11 : Choco Spiral
+12 : Spread the Jelly
+13 : BOOM!
+14 : Multicolor Bomb
+15 : DAY
+16 : Get free coins
+17 : SHARE
+18 : COMPLETED!
+19 : LEVEL FAILED!
+20 : Map
+21 : Restart
+22 : Goal
+23 : Refill your lifes!
+24 : Your Target:
+25 : Claim !
+26 : Reward
+27 : Extra moves
+28 : Extra time
+29 : How to play
+30 : Striped Candy
+31 : Package
+33 : Level goal
+34 : Multicolor fruit
+35 : Logout
+36 : Connect
+37 : Invite
+38 : FULL
+39 : Use it to get Multicolor fruit
+40 : BUY
+41 : MOVES
+42 : Combine more candies the same color for WIN!
+43 : Your score
+44 : Booster!
+45 : Keep trying hard
+46 : Spread the jelly everywhere
+47 : Play everyday, get more rewards!
+48 : Combine 5 chocolates in one row, to create a bomb. It destroys all items on the field with the same color.
+49 : Combine more candies the same colors for WIN!
+50 : You can switch Choco Spiral with any candy on the game field.
+51 : Combine an item above the Jelly with others to spread Jelly more.
+52 : Combine 4 candies to create it. Striped candy can destroy all row.
+53 : Combine 5 candies like below to create it. Packaged candy can destroy all items around itself.
+54 : Multicolor CANDY
+55 : Collect the items
+56 : You didn't collect the items
+57 : Collect Ingredients
+58 : You didn't collect the ingredients
+59 : Destroy sugar squares
+60 : You didn't destroy the sugar squares
+61 : Spread the jelly everywhere
+62 : You didn't spread the jelly
+63 : Destroy solid blocks
+64 : You didn't destroy all blocks
+65 : Gives you the 5 extra moves
+66 : Places a package item on the game field
+67 : Places a striped item on the game field
+68 : Gives you the 30 extra seconds
+69 : Destroys one item
+70 : Places a multicolor item on the game field
+71 : Free item switch
+72 : Destroys the items in an area
+73 : Places a marmalade item on the game field
+74 : PLAY
+75 : Privacy
+76 : Loading...
+77 : TIME
+78 : Hammer
+79 : Free move
+80 : Color Bomb
+81 : Marmalade
+82 : Free
+83 : Level
