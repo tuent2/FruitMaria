@@ -130,7 +130,7 @@ namespace dotmob.Scripts.GUI
         /// <summary>
         /// show rewarded ads
         /// </summary>
-        public void ShowAds()
+        public void ShowAds(int value)
         {
             if (name == "GemsShop")
                 InitScript.Instance.currentReward = RewardsType.GetGems;
@@ -138,7 +138,7 @@ namespace dotmob.Scripts.GUI
                 InitScript.Instance.currentReward = RewardsType.GetLifes;
             else if (name == "PreFailed")
                 InitScript.Instance.currentReward = RewardsType.GetGoOn;
-            AdsManager.THIS.ShowRewardBasedVideo();
+            AdsManager.THIS.ShowRewardBasedVideo(value);
             CloseMenu();
         }
 
@@ -455,6 +455,7 @@ namespace dotmob.Scripts.GUI
         {
             var i = pack.transform.GetSiblingIndex();
             InitScript.waitedPurchaseGems = int.Parse(pack.transform.Find("Count").GetComponent<TextMeshProUGUI>().text.Replace("x ", ""));
+            Debug.Log(" Oke");
 #if UNITY_WEBPLAYER || UNITY_WEBGL
             InitScript.Instance.PurchaseSucceded();
             CloseMenu();

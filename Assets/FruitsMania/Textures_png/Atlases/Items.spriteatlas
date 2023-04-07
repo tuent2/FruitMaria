@@ -110,7 +110,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e49512fc52654fe4dbe0da93aaa153e6, type: 3}
   - {fileID: 21300000, guid: a0ddc91d7259f47e2808cc4f78d7428e, type: 3}
   - {fileID: 21300000, guid: e018d53dd700c47d1b4e5962299a2868, type: 3}
-  - {fileID: 21300000, guid: a8c0ef4dbdae7495a874bdd1c22d0afc, type: 3}
   - {fileID: 21300000, guid: ff22b17d043794cce91292f209a8076b, type: 3}
   - {fileID: 21300000, guid: af91757d0111c4be795859b8deedcfc7, type: 3}
   - {fileID: 21300000, guid: 1232f9fd124c9448c99813f3ade688bf, type: 3}
@@ -183,7 +182,6 @@ SpriteAtlas:
   - boom_12
   - plus-5-text
   - item_mar_05
-  - game_item_e
   - ingredient_01
   - teleport_02
   - game_item_d

@@ -12,6 +12,20 @@ namespace dotmob.Scripts.GUI
 	/// </summary>
 	public class GUIEvents : MonoBehaviour {
 		public GameObject loading;
+
+		
+		// private bool isLoadingDone = false;
+		//---------------------------- tue add new -------------------------
+		// private void Start() {
+		// 	if(isLoadingDone == false){ 
+		// 		Debug.Log("True");
+		// 		LeanTween.delayedCall(1, ()=>SceneManager.LoadScene(Resources.Load<MapSwitcher>("Scriptable/MapSwitcher").GetSceneName()));
+		// 		isLoadingDone = true;
+		// 	}
+			
+		// }
+
+
 		void Update () {
 			if (name == "FaceBook" || name == "Share" || name == "FaceBookLogout") {
 				if (!LevelManager.THIS.FacebookEnable)

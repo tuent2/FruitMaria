@@ -1,10 +1,12 @@
 using System.Diagnostics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using dotmob.Scripts.Core;
 using HmsPlugin;
 using UnityEngine;
 using HuaweiMobileServices.Ads;
+
 namespace dotmob.Scripts.AdsEvents
 {
     /// <summary>
@@ -143,8 +145,30 @@ namespace dotmob.Scripts.AdsEvents
             }
         }
 
-        public void ShowRewardBasedVideo() {
-            ShowSplashVideo();
+        public void ShowRewardBasedVideo()
+        {
+
+            if (Application.internetReachability != NetworkReachability.NotReachable)
+            {
+                ShowSplashVideo();
+                StartCoroutine(checkRewardVideo());
+                
+            }
+
+
+
+        }
+
+
+        IEnumerator checkRewardVideo()
+        {
+            yield return new WaitForSeconds(2f);
+            // HMSAdsKitManager.Instance.LoadSplashAd("testd7c5cewoj6", SplashAd.SplashAdOrientation.PORTRAIT);
+            // bool isRunning = (bool)Application.ExternalEval("document.getElementById('" + flashPlayer.name + "').isPlaying()");
+           
+             if (HMSAdsKitManager.Instance.IsRewardedAdLoaded) {
+                InitScript.Instance.AddLife(1);
+            }
         }
 
         void ShowAdByType(AdType adType)
