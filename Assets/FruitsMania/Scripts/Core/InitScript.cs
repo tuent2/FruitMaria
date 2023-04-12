@@ -63,6 +63,7 @@ namespace dotmob.Scripts.Core
         public string RateURL;
 
         public string RateURLIOS;
+        public string RateURLHuawei;
 
         //rate popup reference
         private GameObject rate;
@@ -179,12 +180,15 @@ namespace dotmob.Scripts.Core
 
         public void AddGems(int count)
         {
+            Debug.Log("Gems"+Gems);
             Gems += count;
+             Debug.Log("Gems"+Gems);
             PlayerPrefs.SetInt("Gems", Gems);
+            Debug.Log("Gems"+PlayerPrefs.GetInt("Gems"));
             PlayerPrefs.Save();
-#if PLAYFAB || GAMESPARKS
-            NetworkManager.currencyManager.IncBalance(count);
-#endif
+// #if PLAYFAB || GAMESPARKS
+//             NetworkManager.currencyManager.IncBalance(count);
+// #endif
 
         }
 

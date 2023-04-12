@@ -27,7 +27,9 @@ namespace dotmob.Scripts.AdsEvents
         public string rewardedVideoZone;
         //admob stuff
         private AdManagerScriptable adsSettings;
-
+        private int type;
+        private Action saveGems;
+        bool adsRewardCompleted;
         private void Awake()
         {
             if (THIS == null) THIS = this;
@@ -43,13 +45,15 @@ namespace dotmob.Scripts.AdsEvents
 
         private void Start()
         {
-            HMSAdsKitManager.Instance.OnRewarded = OnRewarded;
+            HMSAdsKitManager.Instance.OnRewardAdCompleted = OnRewarded;
             HMSAdsKitManager.Instance.OnInterstitialAdClosed = OnInterstitialAdClosed;
 
             HMSAdsKitManager.Instance.ConsentOnFail = OnConsentFail;
             HMSAdsKitManager.Instance.ConsentOnSuccess = OnConsentSuccess;
             HMSAdsKitManager.Instance.RequestConsentUpdate();
 
+            // HMSAdsKitManager.Instance.OnSplashAdShowed += OnABC;
+            // saveGems += OnBCD;
 
             #region SetNonPersonalizedAd , SetRequestLocation
 
@@ -67,6 +71,27 @@ namespace dotmob.Scripts.AdsEvents
             UnityEngine.Debug.Log($"Consent: {requestOptions.Consent}");
 
             #endregion
+        }
+
+        // void OnABC (){
+        //     UnityEngine.Debug.Log("Anc123:" + type);
+        //     // StartCoroutine(checkRewardVideo(type));
+        //      if (HMSAdsKitManager.Instance.IsRewardedAdLoaded) {
+        //         if(type == 1) {
+        //             InitScript.Instance.AddLife(1);
+
+
+        //         }
+        //         else if (type == 2) {
+        //             InitScript.Instance.AddGems(10);
+
+        //         }
+
+        // }
+        // }
+
+        private void LateUpdate() {
+            adsIsOver();
         }
 
         private void OnConsentSuccess(ConsentStatus consentStatus, bool isNeedConsent, IList<AdProvider> adProviders)
@@ -122,9 +147,30 @@ namespace dotmob.Scripts.AdsEvents
             HMSAdsKitManager.Instance.LoadSplashAd("testd7c5cewoj6", SplashAd.SplashAdOrientation.PORTRAIT);
         }
 
-        public void OnRewarded(Reward reward)
+        public void OnRewarded()
         {
             UnityEngine.Debug.Log("[HMS] AdsDemoManager rewarded!");
+            // HMSAdsKitManager.Instance.OnRewardAdCompleted();
+            adsRewardCompleted = true;
+        }
+
+        void adsIsOver()
+        {
+            if (adsRewardCompleted == true)
+            {
+                if (type == 1)
+                {
+                    InitScript.Instance.AddLife(1);
+                }
+                else if (type == 2)
+                {
+                    InitScript.Instance.AddGems(10);
+
+                }
+            }
+
+            adsRewardCompleted = false;
+
         }
 
         public void OnInterstitialAdClosed()
@@ -132,6 +178,19 @@ namespace dotmob.Scripts.AdsEvents
             UnityEngine.Debug.Log("[HMS] AdsDemoManager interstitial ad closed");
         }
 
+        // Start a Coroutine to wait for rewarded ad completion
+        // IEnumerator WaitForRewardedAd()
+        // {
+        //     // ... Wait for rewarded ad to complete ...
+
+        //     // Call PlayerPrefs.SetInt
+
+
+        //     yield return null;
+        //     InitScript.Instance.AddGems(10);
+        // }
+
+        // Call the Coroutine from another script or component
         public void CheckAdsEvents(GameState state)
         {
             foreach (var item in adsEvents)
@@ -145,31 +204,39 @@ namespace dotmob.Scripts.AdsEvents
             }
         }
 
-        public void ShowRewardBasedVideo()
+        public void ShowRewardBasedVideo(int value)
         {
 
             if (Application.internetReachability != NetworkReachability.NotReachable)
             {
-                ShowSplashVideo();
-                StartCoroutine(checkRewardVideo());
-                
+                UnityEngine.Debug.Log("123Ancadasd");
+                this.type = value;
+                ShowRewardedAd();
+                // ShowSplashVideo();
+
             }
-
-
-
         }
 
 
-        IEnumerator checkRewardVideo()
+        IEnumerator checkRewardVideo(int value)
         {
             yield return new WaitForSeconds(2f);
             // HMSAdsKitManager.Instance.LoadSplashAd("testd7c5cewoj6", SplashAd.SplashAdOrientation.PORTRAIT);
             // bool isRunning = (bool)Application.ExternalEval("document.getElementById('" + flashPlayer.name + "').isPlaying()");
-           
-             if (HMSAdsKitManager.Instance.IsRewardedAdLoaded) {
-                InitScript.Instance.AddLife(1);
-            }
+            //  UnityEngine.Debug.Log("123Anc"+value);
+            // //  if (HMSAdsKitManager.Instance.IsRewardedAdLoaded) {
+            //     if(value == 1) {
+            //         InitScript.Instance.AddLife(1);
+            //         UnityEngine.Debug.Log("123Anc1"+value);
+            //     }
+            //     else if (value == 2) {
+            //         InitScript.Instance.AddGems(10);
+            //         UnityEngine.Debug.Log("123Anc2"+ value);
+            //     }
+            // }
         }
+
+
 
         void ShowAdByType(AdType adType)
         {

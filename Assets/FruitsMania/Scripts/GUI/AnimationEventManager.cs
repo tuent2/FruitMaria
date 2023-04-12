@@ -148,14 +148,17 @@ namespace dotmob.Scripts.GUI
         public void GoRate()
         {
 
-#if UNITY_ANDROID
-        Application.OpenURL(InitScript.Instance.RateURL);
-#elif UNITY_IOS
-        Application.OpenURL(InitScript.Instance.RateURLIOS);
-#endif
-            PlayerPrefs.SetInt("Rated", 1);
-            PlayerPrefs.Save();
-            CloseMenu();
+// #if UNITY_ANDROID
+//         Application.OpenURL(InitScript.Instance.RateURL);
+// #elif UNITY_IOS
+//         Application.OpenURL(InitScript.Instance.RateURLIOS);
+
+// #endif
+//             PlayerPrefs.SetInt("Rated", 1);
+//             PlayerPrefs.Save();
+//             CloseMenu();
+            Application.OpenURL(InitScript.Instance.RateURLHuawei);
+             CloseMenu();
         }
 
         void OnDisable()

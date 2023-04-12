@@ -19354,7 +19354,7 @@ Camera:
   far clip plane: 10000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.333333
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19406,6 +19406,7 @@ MonoBehaviour:
   ShowRateEvery: 4
   RateURL: 'market://details?id=com.example.android '
   RateURLIOS: 
+  RateURLHuawei: appmarket://details?id=com.evilmind.huawei
   rewardedGems: 50
   losingLifeEveryGame: 0
   DailyMenu: {fileID: 1214197062}
@@ -36438,13 +36439,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 285581707}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: dotmob.Scripts.GUI.AnimationEventManager, Assembly-CSharp
         m_MethodName: ShowAds
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -73074,13 +73075,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1289045752}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: dotmob.Scripts.GUI.AnimationEventManager, Assembly-CSharp
         m_MethodName: ShowAds
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -73885,7 +73886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.7650146, y: -4.9278564}
+  m_AnchoredPosition: {x: -5.7648926, y: -4.9277344}
   m_SizeDelta: {x: 0, y: 0.00024414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1473880058
@@ -81415,7 +81416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a0917a73ba2342b8aeeaf6da5d4cd32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecea5a2770d72f2489a85b72bb0fa5b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -81446,8 +81447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pictures:
-  - {fileID: 21300000, guid: 5dce06b0872c6409aab2e0aa926f64d5, type: 3}
-  - {fileID: 21300000, guid: 6a0917a73ba2342b8aeeaf6da5d4cd32, type: 3}
+  - {fileID: 21300000, guid: 60f55bff563d3f546abf291567b88a59, type: 3}
+  - {fileID: 21300000, guid: ecea5a2770d72f2489a85b72bb0fa5b8, type: 3}
 --- !u!1 &1665278830
 GameObject:
   m_ObjectHideFlags: 0

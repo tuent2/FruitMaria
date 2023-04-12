@@ -454,6 +454,8 @@ namespace dotmob.Scripts.Editor
                 EditorGUILayout.TextField("URL", initscript.RateURL, GUILayout.Width(220), GUILayout.MaxWidth(220));
             initscript.RateURLIOS = EditorGUILayout.TextField("URL iOS", initscript.RateURLIOS, GUILayout.Width(220),
                 GUILayout.MaxWidth(220));
+            initscript.RateURLHuawei = EditorGUILayout.TextField("URL Huawei", initscript.RateURLHuawei, GUILayout.Width(220),
+                GUILayout.MaxWidth(220));
         }
 
         #endregion
