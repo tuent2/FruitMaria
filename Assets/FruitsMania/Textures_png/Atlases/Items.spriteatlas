@@ -83,6 +83,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f60c9246e002f6749a5f5678fa57db99, type: 3}
   - {fileID: 21300000, guid: a314b4660208bef419ebbb37bb128fd9, type: 3}
   - {fileID: 21300000, guid: a0421d664afd54676a4bf01c8eefd198, type: 3}
+  - {fileID: 21300000, guid: 1abd3f76400c9ee458059e71435775a9, type: 3}
   - {fileID: 21300000, guid: 62029496637fcc34895260635cbcf41d, type: 3}
   - {fileID: 21300000, guid: 33773bc7a218749309b74aa85f7ce185, type: 3}
   - {fileID: 21300000, guid: faed6bf7fb1044a6aaee6aa60652bd5b, type: 3}
@@ -155,6 +156,7 @@ SpriteAtlas:
   - boom_14
   - boom_07
   - obstacle-bar
+  - fruitmania_icon 1
   - boom_08
   - item_05_stripes_horiz
   - game_item_b

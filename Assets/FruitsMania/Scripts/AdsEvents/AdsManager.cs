@@ -90,7 +90,8 @@ namespace dotmob.Scripts.AdsEvents
         // }
         // }
 
-        private void LateUpdate() {
+        private void LateUpdate()
+        {
             adsIsOver();
         }
 
@@ -162,10 +163,9 @@ namespace dotmob.Scripts.AdsEvents
                 {
                     InitScript.Instance.AddLife(1);
                 }
-                else if (type == 2)
+                else
                 {
-                    InitScript.Instance.AddGems(10);
-
+                    InitScript.Instance.AddCount(type);
                 }
             }
 
@@ -209,7 +209,6 @@ namespace dotmob.Scripts.AdsEvents
 
             if (Application.internetReachability != NetworkReachability.NotReachable)
             {
-                UnityEngine.Debug.Log("123Ancadasd");
                 this.type = value;
                 ShowRewardedAd();
                 // ShowSplashVideo();
