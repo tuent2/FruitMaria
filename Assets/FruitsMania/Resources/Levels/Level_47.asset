@@ -34,7 +34,7 @@ MonoBehaviour:
         guiRect:
           serializedVersion: 2
           x: 3
-          y: 383
+          y: 362
           width: 50
           height: 50
         item:
@@ -57,8 +57,8 @@ MonoBehaviour:
         teleportCoordinatesLinkedBack: {x: -1, y: -1}
         guiRect:
           serializedVersion: 2
-          x: 57
-          y: 383
+          x: 56
+          y: 362
           width: 50
           height: 50
         item:
@@ -81,8 +81,8 @@ MonoBehaviour:
         teleportCoordinatesLinkedBack: {x: -1, y: -1}
         guiRect:
           serializedVersion: 2
-          x: 111
-          y: 383
+          x: 109
+          y: 362
           width: 50
           height: 50
         item:
@@ -1561,19 +1561,21 @@ MonoBehaviour:
     target:
       name: SugarSquare
       Description: Destroy sugar squares
+      descriptionLocalizationRefrence: 59
       FailedDescription: You didn't destroy the sugar squares
+      failedLocalizationRefrence: 60
       prefabs:
       - {fileID: 1055345148094608, guid: 4ebed1d82b94548d0ab47103e3f205e5, type: 3}
-      prefabPaths: []
     targetIndex: 2
     limitType: 0
     ingrCountTarget: 0000000000000000
-    limit: 25
+    limit: 22
     colorLimit: 5
     star1: 1000
     star2: 2000
     star3: 3000
     enableMarmalade: 0
+    selectedTutorial: 0
     currentSublevelIndex: 0
     subTargetsContainers:
     - targetPrefab: {fileID: 1533976084100574, guid: 4ebed1d82b94548d0ab47103e3f205e5,
@@ -1581,4 +1583,4 @@ MonoBehaviour:
       count: 64
       preCount: 64
       extraObject: {fileID: 0}
-      prefabPath: 
+      color: 0

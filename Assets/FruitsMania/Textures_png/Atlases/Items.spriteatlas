@@ -58,6 +58,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 16b3add0a1b96472aaa865d7a48d507f, type: 3}
   - {fileID: 21300000, guid: 3ea64ff047ff6d144bb32b757bdfe790, type: 3}
   - {fileID: 21300000, guid: 0687c131a807044db9027e03ac01e977, type: 3}
+  - {fileID: 21300000, guid: 526a82516b3deda42bb55c1b2213ff03, type: 3}
   - {fileID: 21300000, guid: f57722712dea04612ad9fcfa3bb1f840, type: 3}
   - {fileID: 21300000, guid: 71f7157132f6d41b8843bcaf0f199bf9, type: 3}
   - {fileID: 21300000, guid: ac4c6281ca9998c44a618a6570ad0a9f, type: 3}
@@ -102,6 +103,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 00609a7a5bb9f4a9b89633edcfd97d78, type: 3}
   - {fileID: 21300000, guid: f89ff6aa2ed834bd8a4e2bb4d6117e1d, type: 3}
   - {fileID: 21300000, guid: 75e1333bf7939d24bb365ffb2c576735, type: 3}
+  - {fileID: 21300000, guid: 760b914b0354eb04c9c99a1cc63365c2, type: 3}
   - {fileID: 21300000, guid: 29dc898b251c345b683dcd0f2e644084, type: 3}
   - {fileID: 21300000, guid: 5633899bf840d384a90523c98e7b186d, type: 3}
   - {fileID: 21300000, guid: b8cc82eb87b3d4696b8d1c904048a751, type: 3}
@@ -131,6 +133,7 @@ SpriteAtlas:
   - circle_particle_2
   - boom_17
   - game_item_c_1
+  - photo_2023-04-06_17-14-38 1
   - item_mar_06
   - teleport_01
   - boom_09
@@ -175,6 +178,7 @@ SpriteAtlas:
   - item_06
   - bomb_items_04
   - boom_06
+  - photo_2023-04-06_17-14-38
   - bomb_items_02
   - boom_16
   - game_item_a_2

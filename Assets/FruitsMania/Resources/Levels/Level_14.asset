@@ -1209,7 +1209,7 @@ MonoBehaviour:
     targetIndex: 1
     limitType: 0
     ingrCountTarget: 0000000000000000
-    limit: 30
+    limit: 27
     colorLimit: 4
     star1: 100
     star2: 300
