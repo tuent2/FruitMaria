@@ -10,7 +10,7 @@ using dotmob.Scripts.System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
-
+using TMPro;
 namespace dotmob.Scripts.Core
 {
     /// <summary>
@@ -77,6 +77,19 @@ namespace dotmob.Scripts.Core
         //daily reward popup reference
         public GameObject DailyMenu;
 
+        private int packFristCount = 0;
+        private int packSecondCount = 0;
+        private int packThirdCount = 0;
+        private int packFourCount = 0;
+        public int totalPackFristCount = 1;
+        public int totalPackSecondCount = 2;
+        public int totalPackThirdCount = 3;
+        public int totalPackFourCount = 4;
+        [SerializeField] TextMeshProUGUI pack1Text;
+        [SerializeField] TextMeshProUGUI pack2Text;
+        [SerializeField] TextMeshProUGUI pack3Text;
+        [SerializeField] TextMeshProUGUI pack4Text;
+
         // Use this for initialization
         void Awake()
         {
@@ -103,13 +116,49 @@ namespace dotmob.Scripts.Core
                 PlayerPrefs.Save();
             }
 
+            if (!PlayerPrefs.HasKey("packFristCount"))
+            {
+                this.packFristCount = 0;
+            }
+            else
+            {
+                this.packFristCount = PlayerPrefs.GetInt("packFristCount");
+            }
+            //pack2
+            if (!PlayerPrefs.HasKey("packSecondCount"))
+            {
+                this.packSecondCount = 0;
+            }
+            else
+            {
+                this.packSecondCount = PlayerPrefs.GetInt("packSecondCount");
+            }
+            // pack 3
+            if (!PlayerPrefs.HasKey("packThirdCount"))
+            {
+                this.packThirdCount = 0;
+            }
+            else
+            {
+                this.packThirdCount = PlayerPrefs.GetInt("packThirdCount");
+            }
+            //pack 4
+            if (!PlayerPrefs.HasKey("packFourCount"))
+            {
+                this.packFourCount = 0;
+            }
+            else
+            {
+                this.packFourCount = PlayerPrefs.GetInt("packFourCount");
+            }
+
             rate = Instantiate(Resources.Load("Prefabs/Rate")) as GameObject;
             rate.SetActive(false);
             rate.transform.SetParent(MenuReference.THIS.transform);
             rate.transform.localPosition = Vector3.zero;
             rate.GetComponent<RectTransform>().offsetMin = new Vector2(-5, -5);
             rate.GetComponent<RectTransform>().offsetMax = new Vector2(5, 5);
-//        rate.GetComponent<RectTransform>().anchoredPosition = (Resources.Load("Prefabs/Rate") as GameObject).GetComponent<RectTransform>().anchoredPosition;
+            //        rate.GetComponent<RectTransform>().anchoredPosition = (Resources.Load("Prefabs/Rate") as GameObject).GetComponent<RectTransform>().anchoredPosition;
             rate.transform.localScale = Vector3.one;
             var g = MenuReference.THIS.Reward.gameObject;
             g.SetActive(true);
@@ -135,7 +184,13 @@ namespace dotmob.Scripts.Core
             return string.Format("Level.{0:000}.StarsCount", number);
         }
 
-
+        private void Update()
+        {
+            pack1Text.text = packFristCount + "/" + totalPackFristCount;
+            pack2Text.text = packSecondCount + "/" + totalPackSecondCount;
+            pack3Text.text = packThirdCount + "/" + totalPackThirdCount;
+            pack4Text.text = packFourCount + "/" + totalPackFourCount;
+        }
 
 
 
@@ -180,16 +235,64 @@ namespace dotmob.Scripts.Core
 
         public void AddGems(int count)
         {
-            Debug.Log("Gems"+Gems);
+            Debug.Log("Gems" + Gems);
             Gems += count;
-             Debug.Log("Gems"+Gems);
+            Debug.Log("Gems" + Gems);
             PlayerPrefs.SetInt("Gems", Gems);
-            Debug.Log("Gems"+PlayerPrefs.GetInt("Gems"));
+            Debug.Log("Gems" + PlayerPrefs.GetInt("Gems"));
             PlayerPrefs.Save();
-// #if PLAYFAB || GAMESPARKS
-//             NetworkManager.currencyManager.IncBalance(count);
-// #endif
+            // #if PLAYFAB || GAMESPARKS
+            //             NetworkManager.currencyManager.IncBalance(count);
+            // #endif
 
+        }
+
+        public void AddCount(int pack)
+        {
+            if (pack == 2)
+            {
+                packFristCount++;
+                if (packFristCount == totalPackFristCount)
+                {
+                    InitScript.Instance.AddGems(10);
+                    packFristCount = 0;
+                }
+                PlayerPrefs.SetInt("packFristCount", packFristCount);
+                PlayerPrefs.Save();
+            }
+            else if (pack == 3)
+            {
+                packSecondCount++;
+                if (packSecondCount == totalPackSecondCount)
+                {
+                    InitScript.Instance.AddGems(30);
+                    packSecondCount = 0;
+                }
+                PlayerPrefs.SetInt("packSecondCount", packSecondCount);
+                PlayerPrefs.Save();
+            }
+            else if (pack == 4)
+            {
+                packThirdCount++;
+                if (packThirdCount == totalPackThirdCount)
+                {
+                    InitScript.Instance.AddGems(60);
+                    packThirdCount = 0;
+                }
+                PlayerPrefs.SetInt("packThirdCount", packThirdCount);
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                packFourCount++;
+                if (packFourCount == totalPackFourCount)
+                {
+                    InitScript.Instance.AddGems(90);
+                    packFourCount = 0;
+                }
+                PlayerPrefs.SetInt("packFourCount", packFourCount);
+                PlayerPrefs.Save();
+            }
         }
 
         public void SpendGems(int count)
