@@ -81,3 +81,4 @@
 81 : Marmalade
 82 : Free
 83 : Level
+84 : Get free lifes

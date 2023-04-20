@@ -7,17 +7,19 @@ namespace dotmob.Scripts.GUI.BonusSpin
     /// <summary>
     /// Opens spinning wheel bonus game
     /// </summary>
-    public class BonusSpinButton : MonoBehaviour {
+    public class BonusSpinButton : MonoBehaviour
+    {
         public GameObject spin;
         public GameObject shop;
 
+        public GameObject daily;
         private void Start()
         {
             if (ServerTime.THIS.dateReceived)
                 CheckSpin();
             else ServerTime.OnDateReceived += CheckSpin;
         }
-        
+
         /// <summary>
         /// Check server to show or hide the button
         /// </summary>
@@ -27,7 +29,7 @@ namespace dotmob.Scripts.GUI.BonusSpin
             if (latestSpinDate == "" || latestSpinDate == default(DateTime).ToString())
             {
                 latestSpinDate = ServerTime.THIS.serverTime.ToString();
-                if(this != null)
+                if (this != null)
                     gameObject.SetActive(true);
                 return;
             }
@@ -35,10 +37,10 @@ namespace dotmob.Scripts.GUI.BonusSpin
             var latestDate = DateTime.Parse(latestSpinDate);
             if (spin != null)
             {
-                var spinned = Mathf.Clamp(PlayerPrefs.GetInt("Spinned", 0), 0, spin.GetComponent<BonusSpin>().spinPrice.Length );
-                if (ServerTime.THIS.serverTime.Subtract(latestDate).TotalHours < 24 && spinned >= spin.GetComponent<BonusSpin>().spinPrice.Length )
+                var spinned = Mathf.Clamp(PlayerPrefs.GetInt("Spinned", 0), 0, spin.GetComponent<BonusSpin>().spinPrice.Length);
+                if (ServerTime.THIS.serverTime.Subtract(latestDate).TotalHours < 24 && spinned >= spin.GetComponent<BonusSpin>().spinPrice.Length)
                     gameObject.SetActive(false);
-                else if(ServerTime.THIS.serverTime.Subtract(latestDate).TotalHours >= 24)
+                else if (ServerTime.THIS.serverTime.Subtract(latestDate).TotalHours >= 24)
                 {
                     PlayerPrefs.SetInt("Spinned", 0);
                     gameObject.SetActive(true);
@@ -50,7 +52,7 @@ namespace dotmob.Scripts.GUI.BonusSpin
 
         private void OnDisable()
         {
-       ServerTime.OnDateReceived -= CheckSpin;
+            ServerTime.OnDateReceived -= CheckSpin;
         }
 
         public void OnClick()
@@ -58,7 +60,7 @@ namespace dotmob.Scripts.GUI.BonusSpin
             spin.SetActive(true);
         }
 
-        
+
         public void OnSpin()
         {
             SetDate();
@@ -70,8 +72,13 @@ namespace dotmob.Scripts.GUI.BonusSpin
             shop.SetActive(true);
         }
 
-        void SetDate(){
-            PlayerPrefs.SetString("Spin",ServerTime.THIS.serverTime.ToString());
+        public void OnClickDaily()
+        {
+            daily.SetActive(true);
+        }
+        void SetDate()
+        {
+            PlayerPrefs.SetString("Spin", ServerTime.THIS.serverTime.ToString());
         }
     }
 }

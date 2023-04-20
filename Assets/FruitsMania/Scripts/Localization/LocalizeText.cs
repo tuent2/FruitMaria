@@ -8,7 +8,7 @@ namespace dotmob.Scripts.Localization
     {
         private TextMeshProUGUI textObject;
         public int instanceID;
-        [SerializeField, Reorderable( elementNameProperty = "language"),HideInInspector]
+        [SerializeField, Reorderable(elementNameProperty = "language"), HideInInspector]
 
         private string _originalText;
         private string _currentText;

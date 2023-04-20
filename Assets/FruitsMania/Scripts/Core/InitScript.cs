@@ -226,6 +226,11 @@ namespace dotmob.Scripts.Core
 
         }
 
+        public void getMoreMove()
+        {
+            MenuReference.THIS.PreFailed.GetComponent<AnimationEventManager>().GoOnFailed();
+        }
+
         public void SetGems(int count)
         {
             Gems = count;

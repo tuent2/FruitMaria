@@ -163,6 +163,10 @@ namespace dotmob.Scripts.AdsEvents
                 {
                     InitScript.Instance.AddLife(1);
                 }
+                else if (type == 6)
+                {
+                    InitScript.Instance.getMoreMove();
+                }
                 else
                 {
                     InitScript.Instance.AddCount(type);
