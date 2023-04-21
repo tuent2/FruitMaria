@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -13,7 +13,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using HuaweiMobileServices.IAP;
+using HmsPlugin;
 #if UNITY_ADS
 using UnityEngine.Advertisements;
 #endif
@@ -53,7 +54,7 @@ namespace dotmob.Scripts.GUI
             }
             if (name == "PreFailed")
             {
-//            SoundBase.Instance.PlayOneShot(SoundBase.Instance.gameOver[0]);
+                //            SoundBase.Instance.PlayOneShot(SoundBase.Instance.gameOver[0]);
                 //transform.Find("Banner/Buttons/Video").gameObject.SetActive(false);
                 transform.Find("Banner/Buttons/Buy").GetComponent<Button>().interactable = true;
 
@@ -142,23 +143,30 @@ namespace dotmob.Scripts.GUI
             CloseMenu();
         }
 
+        public void buyGemIAP(string productID)
+        {
+            // HMSIAPManager.Instance.PurchaseProduct(productID);
+            AdsManager.THIS.buyIAPChecked(productID);
+            CloseMenu();
+        }
+
         /// <summary>
         /// Open rate store
         /// </summary>
         public void GoRate()
         {
 
-// #if UNITY_ANDROID
-//         Application.OpenURL(InitScript.Instance.RateURL);
-// #elif UNITY_IOS
-//         Application.OpenURL(InitScript.Instance.RateURLIOS);
+            // #if UNITY_ANDROID
+            //         Application.OpenURL(InitScript.Instance.RateURL);
+            // #elif UNITY_IOS
+            //         Application.OpenURL(InitScript.Instance.RateURLIOS);
 
-// #endif
-//             PlayerPrefs.SetInt("Rated", 1);
-//             PlayerPrefs.Save();
-//             CloseMenu();
+            // #endif
+            //             PlayerPrefs.SetInt("Rated", 1);
+            //             PlayerPrefs.Save();
+            //             CloseMenu();
             Application.OpenURL(InitScript.Instance.RateURLHuawei);
-             CloseMenu();
+            CloseMenu();
         }
 
         void OnDisable()
@@ -203,11 +211,11 @@ namespace dotmob.Scripts.GUI
             {
                 if (LevelManager.Score < LevelManager.THIS.levelData.star1)
                 {
-                   // TargetCheck(false, 2);
+                    // TargetCheck(false, 2);
                 }
                 else
                 {
-                   // TargetCheck(true, 2);
+                    // TargetCheck(true, 2);
                 }
 
             }
@@ -215,7 +223,7 @@ namespace dotmob.Scripts.GUI
             {
                 CloseMenu();
                 LevelManager.THIS.gameStatus = GameState.Tutorial;
-                if(LevelManager.THIS.levelData.limitType == LIMIT.TIME) SoundBase.Instance.PlayOneShot(SoundBase.Instance.timeOut);
+                if (LevelManager.THIS.levelData.limitType == LIMIT.TIME) SoundBase.Instance.PlayOneShot(SoundBase.Instance.timeOut);
 
             }
             if (name == "PreFailed")
@@ -253,7 +261,7 @@ namespace dotmob.Scripts.GUI
 
 
 #if GOOGLE_MOBILE_ADS
-                
+
                 transform.Find("Banner/Buttons/Video").gameObject.SetActive(true);
 #endif
 #if UNITY_ADS
@@ -335,7 +343,7 @@ namespace dotmob.Scripts.GUI
             }
             if (gameObject.name == "MenuComplete")
             {
-//            LevelManager.THIS.gameStatus = GameState.Map;
+                //            LevelManager.THIS.gameStatus = GameState.Map;
                 PlayerPrefs.SetInt("OpenLevel", LevelManager.THIS.currentLevel + 1);
                 CrosssceneData.openNextLevel = true;
                 SceneManager.LoadScene(Resources.Load<MapSwitcher>("Scriptable/MapSwitcher").GetSceneName());
@@ -458,19 +466,22 @@ namespace dotmob.Scripts.GUI
         {
             var i = pack.transform.GetSiblingIndex();
             InitScript.waitedPurchaseGems = int.Parse(pack.transform.Find("Count").GetComponent<TextMeshProUGUI>().text.Replace("x ", ""));
+
             Debug.Log(" Oke");
 #if UNITY_WEBPLAYER || UNITY_WEBGL
-            InitScript.Instance.PurchaseSucceded();
-            CloseMenu();
-            return;
+                        InitScript.Instance.PurchaseSucceded();
+                        CloseMenu();
+                        return;
 #endif
 #if UNITY_PURCHASING && UNITY_INAPPS
-            UnityInAppsIntegration.THIS.BuyProductID(LevelManager.THIS.InAppIDs[i]);
+                        UnityInAppsIntegration.THIS.BuyProductID(LevelManager.THIS.InAppIDs[i]);
 #endif
 
             CloseMenu();
 
         }
+
+
 
         public void BuyLifeShop()
         {
@@ -499,14 +510,14 @@ namespace dotmob.Scripts.GUI
 
         public void BuyFailed(GameObject button)
         {
-       if (GetComponent<Animation>()["bannerFailed"].speed == 0)
+            if (GetComponent<Animation>()["bannerFailed"].speed == 0)
             {
                 if (InitScript.Gems >= LevelManager.THIS.FailedCost)
                 {
                     InitScript.Instance.SpendGems(LevelManager.THIS.FailedCost);
                     button.GetComponent<Button>().interactable = false;
                     GoOnFailed();
-                    GetComponent<Animation>()["bannerFailed"].speed = 1;  
+                    GetComponent<Animation>()["bannerFailed"].speed = 1;
                 }
                 else
                 {

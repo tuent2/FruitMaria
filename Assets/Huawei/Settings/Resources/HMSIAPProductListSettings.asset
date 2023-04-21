@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: HMSIAPProductListSettings
   m_EditorClassIdentifier: 
   settings:
-    _keys: []
-    _values: []
+    _keys:
+    - com.fruitmania.500
+    - Test1_product name
+    - Test1_id
+    _values:
+    - Consumable
+    - Consumable
+    - Consumable
